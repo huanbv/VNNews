@@ -1,38 +1,32 @@
 package com.example.news;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.media.MediaCodec;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private ProgressBar progressBar;
     private EditText searchEt;
     private ImageButton filterBtn;
     private RecyclerView sourcesRv;
+    private FirebaseFirestore firebaseFirestore;
 
-    private ArrayList<ModelSourceList> sourceLists;
-    private  AdapterSourceList adapterSourceList;
+    private FirestoreRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,88 +34,69 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // init ui views
-        progressBar = findViewById(R.id.progressBar);
-        searchEt = findViewById(R.id.searchEt);
-        filterBtn = findViewById(R.id.filterBtn);
+        //searchEt = findViewById(R.id.searchEt);
+        //filterBtn = findViewById(R.id.filterBtn);
+        firebaseFirestore = FirebaseFirestore.getInstance();
         sourcesRv = findViewById(R.id.sourcesRv);
 
-        loadSources();
+        //Query
+        Query query = firebaseFirestore.collection("news");
+
+        // Recycle options
+        FirestoreRecyclerOptions<ModelSourceList> options = new FirestoreRecyclerOptions
+                .Builder<ModelSourceList>()
+                .setQuery(query, ModelSourceList.class)
+                .build();
+
+        adapter = new FirestoreRecyclerAdapter<ModelSourceList, NewsViewHolder>(options) {
+            @NonNull
+            @Override
+            public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_source_list, parent, false);
+                return new NewsViewHolder(view);
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull NewsViewHolder holder, int position, @NonNull ModelSourceList model) {
+                holder.name.setText(model.getName());
+                holder.description.setText(model.getDescription());
+                holder.category.setText(model.getCategory());
+            }
+        };
+
+        //View holder
+        sourcesRv.setHasFixedSize(true);
+        sourcesRv.setLayoutManager(new LinearLayoutManager(this));
+        sourcesRv.setAdapter(adapter);
+        adapter.startListening();
 
     }
 
-    private void loadSources() {
-        // init list
-        sourceLists = new ArrayList<>();
-        sourceLists.clear();
+    private class NewsViewHolder extends RecyclerView.ViewHolder{
 
-        progressBar.setVisibility(View.VISIBLE);
+        private TextView name;
+        private TextView description;
+        private TextView category;
 
-        String url = "https://newsapi.org/v2/sources?apiKey=" +Constants.API_KEY;
-        // request data
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-            // response is got as string
+        public NewsViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-                try {
-                    // convert string to JSON object
-                    JSONObject jsonObject = new JSONObject(response);
-                    // get sources from that object
-                    JSONArray jsonArray = jsonObject.getJSONArray("sources");
+            name = itemView.findViewById(R.id.name);
+            description = itemView.findViewById(R.id.description);
+            category = itemView.findViewById(R.id.category);
+        }
+    }
 
-                    // get all data from that array using loop
-                    for (int  i=0; i<jsonArray.length(); i++){
-                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
-                        // make sure to use same key and spellings as in response
-                        String id = jsonObject1.getString("id");
-                        String name = jsonObject1.getString("name");
-                        String description = jsonObject1.getString("description");
-                        String url = jsonObject1.getString("url");
-                        String country = jsonObject1.getString("country");
-                        String category = jsonObject1.getString("category");
-                        String language = jsonObject1.getString("language");
-
-                        // set data to model
-                        ModelSourceList model = new ModelSourceList(
-                                ""+id,
-                                ""+name,
-                                ""+description,
-                                ""+url,
-                                ""+category,
-                                ""+language,
-                                ""+ country
-                        );
-                        // add model to list
-                        sourceLists.add(model);
-
-                    }
-
-                    progressBar.setVisibility(View.GONE);
-                    //stup adapter
-                    adapterSourceList = new AdapterSourceList(MainActivity.this, sourceLists);
-                    // set adapter to recycleview
-                    sourcesRv.setAdapter(adapterSourceList);
-                }
-                catch (Exception e){
-
-                    //exception while loading json data
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(MainActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            // error white requsting response
-                progressBar.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this,""+error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        // add request to queue
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(adapter != null) {
+            adapter.stopListening();
+        }
     }
 }
