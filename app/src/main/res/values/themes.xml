@@ -13,4 +13,15 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="MainActivity"></style>
+    <style name="MainActivity.BottomNavView" parent="MainActivity" >
+        <item name="android:textColor">#0379ce</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="MainActivity.BottomNavView.InActive" parent="MainActivity" >
+        <item name="android:textColor">#bbb</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

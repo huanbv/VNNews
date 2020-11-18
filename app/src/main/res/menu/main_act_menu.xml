@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_act_news_menu"
+        android:title="Đọc báo"
+        android:icon="@drawable/ic_read_news"/>
+    <item
+        android:id="@+id/main_act_video_menu"
+        android:title="Xem video"
+        android:icon="@drawable/ic_video"/>
+    <item
+        android:id="@+id/main_act_explore_menu"
+        android:title="Khám phá"
+        android:icon="@drawable/ic_explore"/>
+    <item
+        android:id="@+id/main_act_notis_menu"
+        android:title="Thông báo"
+        android:icon="@drawable/ic_notifications"/>
+    <item
+        android:id="@+id/main_act_settings_menu"
+        android:title="Cài đặt"
+        android:icon="@drawable/ic_settings"/>
+
+</menu>
