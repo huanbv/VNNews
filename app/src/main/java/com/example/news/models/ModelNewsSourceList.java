@@ -1,20 +1,43 @@
 package com.example.news.models;
 
-public class ModelSourceList {
+public class ModelNewsSourceList {
     private String name, description, category, thumbnailUrl;
     private NewsDetail detail;
+    private String date;
+    private String time;
 
-    private  ModelSourceList(){}
+    private ModelNewsSourceList(){}
 
     // constructor
-    public ModelSourceList(String name, String description, String category, String thumbnailUrl, NewsDetail detail) {
+    public ModelNewsSourceList(String name,       String description,
+                               String category,   String thumbnailUrl,
+                               NewsDetail detail, String date, String time) {
+
+
         this.name = name;
         this.description = description;
         this.category = category;
         this.thumbnailUrl = thumbnailUrl;
         this.detail = detail;
+        this.date = date;
+        this.time = time;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public NewsDetail getDetail() {
         return detail;

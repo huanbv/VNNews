@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <layout>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.VideoFragment">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragments.NewsFragment">
 
-        <ImageView
-            android:id="@+id/imvThumbnail"
-            android:src="#ccc"
-            android:layout_gravity="center"
-            android:layout_width="300dp"
-            android:layout_height="300dp"/>
+        <RelativeLayout
+            android:id="@+id/searchRl"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content">
 
-    </FrameLayout>
+            <EditText
+                android:id="@+id/searchEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toStartOf="@+id/filterBtn"
+                android:background="@drawable/shape_rect"
+                android:hint="Search"
+                android:isScrollContainer="false"
+                android:padding="8dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGray2" />
+
+            <ImageButton
+                android:id="@+id/filterBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_filter_black"/>
+
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/videoSourcesRv"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            tools:listitem="@layout/video_source_list"
+            android:layout_below="@id/searchRl"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </RelativeLayout>
 </layout>
+

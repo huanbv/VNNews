@@ -8,12 +8,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".fragments.NewsFragment">
 
-
         <RelativeLayout
             android:id="@+id/searchRl"
             android:layout_width="match_parent"
             android:layout_alignParentTop="true"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/searchEt"
                 android:layout_width="match_parent"
@@ -39,6 +39,7 @@
                 android:layout_marginEnd="5dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_filter_black"/>
+
         </RelativeLayout>
 
 
@@ -46,7 +47,7 @@
             android:id="@+id/sourcesRv"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            tools:listitem="@layout/row_source_list"
+            tools:listitem="@layout/news_source_list"
             android:layout_below="@id/searchRl"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

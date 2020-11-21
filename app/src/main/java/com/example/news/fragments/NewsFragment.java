@@ -13,9 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.news.R;
-import com.example.news.adapters.AdapterSourceList;
+import com.example.news.adapters.AdapterNewsSourceList;
 import com.example.news.databinding.FragmentNewsBinding;
-import com.example.news.models.ModelSourceList;
+import com.example.news.models.ModelNewsSourceList;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -23,7 +23,7 @@ import com.google.firebase.firestore.Query;
 
 public class NewsFragment extends Fragment {
     private FragmentNewsBinding B;
-    private AdapterSourceList adapter;
+    private AdapterNewsSourceList adapter;
     private FirebaseFirestore firebaseFirestore;
 
 
@@ -49,12 +49,12 @@ public class NewsFragment extends Fragment {
 
 
         // Recycle options
-        FirestoreRecyclerOptions<ModelSourceList> options = new FirestoreRecyclerOptions
-            .Builder<ModelSourceList>()
-            .setQuery(query, ModelSourceList.class)
+        FirestoreRecyclerOptions<ModelNewsSourceList> options = new FirestoreRecyclerOptions
+            .Builder<ModelNewsSourceList>()
+            .setQuery(query, ModelNewsSourceList.class)
             .build();
 
-        adapter = new AdapterSourceList(options);
+        adapter = new AdapterNewsSourceList(options);
 
         //View holder
         B.sourcesRv.setHasFixedSize(true);
@@ -62,6 +62,12 @@ public class NewsFragment extends Fragment {
         B.sourcesRv.setAdapter(adapter);
 
 
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         adapter.startListening();
     }
 
@@ -74,4 +80,12 @@ public class NewsFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (adapter != null) {
+            adapter.stopListening();
+        }
+    }
 }

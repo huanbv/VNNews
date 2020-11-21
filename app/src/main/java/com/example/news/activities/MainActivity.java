@@ -18,12 +18,14 @@ import com.example.news.fragments.NewsFragment;
 import com.example.news.fragments.NotificationsFragment;
 import com.example.news.fragments.SettingsFragment;
 import com.example.news.fragments.VideoFragment;
+import com.example.news.models.ModelNewsSourceList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public ArrayList<ModelNewsSourceList> fillerList;
     private ActivityMainBinding B;
     private List<Integer> bottomNavIdsList;
     private List<Fragment> fragmentsList;

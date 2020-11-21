@@ -14,6 +14,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/thumbnailUrl"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorGray"/>
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -46,7 +52,25 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="category"
-                android:textAlignment="textStart"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="date"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="time"
+                android:textAlignment="viewEnd"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"/>
         </LinearLayout>
