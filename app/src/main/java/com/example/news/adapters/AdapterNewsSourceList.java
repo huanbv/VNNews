@@ -1,5 +1,6 @@
 package com.example.news.adapters;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,14 +37,28 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
 
     @Override
     protected void onBindViewHolder(@NonNull NewsViewHolder holder, int position, @NonNull ModelNewsSourceList model) {
+
+
+        /* Xuat thong tin tu Firestore hiẻn thi len RecycleView tai News Layout */
         holder.name.setText(model.getName());
         holder.description.setText(model.getDescription());
         holder.category.setText(model.getCategory());
         holder.date.setText("Ngày: " +model.getDate());
         holder.time.setText("Giờ: " +model.getTime());
         Glide.with(holder.itemView.getContext()).load(model.getThumbnailUrl()).into(holder.thumbnailUrl);
-    }
 
+
+        /* Khi nhan vao tin tuc se chuyen qua Layout chi tiet cua tin tuc do */
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+            }
+        });
+
+
+    }
 
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder{

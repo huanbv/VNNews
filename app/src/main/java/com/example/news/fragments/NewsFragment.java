@@ -63,6 +63,8 @@ public class NewsFragment extends Fragment {
 
 
         adapter.startListening();
+
+
     }
 
     @Override
