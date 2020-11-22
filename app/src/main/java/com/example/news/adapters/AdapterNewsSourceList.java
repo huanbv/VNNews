@@ -1,17 +1,23 @@
 package com.example.news.adapters;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.news.models.ModelNewsSourceList;
 import com.example.news.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+
+import java.net.URI;
+import java.util.Objects;
 
 
 public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSourceList, AdapterNewsSourceList.NewsViewHolder> {
@@ -35,6 +41,7 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
         holder.category.setText(model.getCategory());
         holder.date.setText("Ngày: " +model.getDate());
         holder.time.setText("Giờ: " +model.getTime());
+        Glide.with(holder.itemView.getContext()).load(model.getThumbnailUrl()).into(holder.thumbnailUrl);
     }
 
 
@@ -45,10 +52,12 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
         private TextView category;
         private TextView date;
         private TextView time;
+        private ImageView thumbnailUrl;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            thumbnailUrl = itemView.findViewById(R.id.thumbnailUrl);
             name = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
             category = itemView.findViewById(R.id.category);
