@@ -20,6 +20,7 @@
             android:paddingBottom="10dp">
 
             <ImageButton
+                android:id="@+id/thumbnailUserImgBtn"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:textColor="@color/colorBlack"/>
@@ -31,13 +32,16 @@
                 android:padding="15dp"
                 android:layout_gravity="top">
 
+
                 <TextView
+                    android:id="@+id/usernameEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bùi Văn Huân"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -55,6 +59,8 @@
         android:background="@color/colorWhite"
         android:padding="15dp"
         android:layout_gravity="bottom">
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,12 +68,14 @@
             android:orientation="vertical"
             android:padding="15dp">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,6 +88,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,12 +99,16 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp"
                     android:textStyle="bold" />
+
+
             </LinearLayout>
+
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorGray" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,6 +116,7 @@
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
+
 
                 <TextView
                     android:id="@+id/Privacy"
@@ -115,6 +129,7 @@
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:id="@+id/Support"
                     android:layout_width="wrap_content"
@@ -125,6 +140,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
+
 
                 <TextView
                     android:id="@+id/settings"
@@ -138,12 +154,14 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -155,6 +173,7 @@
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -165,6 +184,7 @@
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -174,13 +194,17 @@
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
+
+
             </LinearLayout>
         </LinearLayout>
 
+
         <View
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="1dp"
             android:background="@color/colorGray" />
+
 
         <TextView
             android:id="@+id/nameTv"
@@ -194,10 +218,12 @@
             android:paddingBottom="10dp"
             android:paddingTop="10dp"/>
 
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorGray" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -205,6 +231,7 @@
             android:orientation="horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
+
 
             <TextView
                 android:id="@+id/PrivacyTv"
@@ -217,6 +244,7 @@
                 android:textStyle="bold"
                 android:drawableTop="@drawable/ic_privacy"/>
 
+
             <TextView
                 android:id="@+id/SupportTv"
                 android:layout_width="wrap_content"
@@ -227,6 +255,7 @@
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 android:drawableTop="@drawable/ic_support"/>
+
 
             <TextView
                 android:id="@+id/settingsTv"
@@ -239,12 +268,15 @@
                 android:textStyle="bold"
                 android:drawableTop="@drawable/ic_settings"/>
 
+
         </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorGray"/>
+
 
         <TextView
             android:id="@+id/versionTv"
@@ -254,11 +286,14 @@
             android:textColor="@color/colorBlack"
             android:textAlignment="center"
             android:paddingTop="10dp"/>
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorGray"
             android:paddingTop="10dp"/>
+
 
         <TextView
             android:layout_width="match_parent"
