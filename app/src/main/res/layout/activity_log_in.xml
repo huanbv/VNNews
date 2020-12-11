@@ -6,6 +6,7 @@
         android:layout_height="match_parent"
         app:cardUseCompatPadding="true"
         app:cardBackgroundColor="@color/colorGray"
+        android:id="@+id/layout_main_login"
         app:contentPadding="5dp"
         android:elevation="3dp"
         app:cardCornerRadius="3dp">
@@ -109,6 +110,8 @@
                     android:layout_height="wrap_content"
                     android:text="Đăng ký tài khoản"
                     android:textColor="@color/colorBlack"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:textAlignment="center"
                     android:layout_weight="1"
                     android:textStyle="bold"

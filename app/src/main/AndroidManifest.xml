@@ -13,7 +13,6 @@
         android:theme="@style/Theme.News"
         android:usesCleartextTraffic="true">
         <activity android:name=".activities.MainActivity"></activity>
-        <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
