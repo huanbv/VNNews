@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,9 +11,15 @@
     android:layout_margin="10dp"
     app:cardCornerRadius="3dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/news_Details_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="5dp">
 
@@ -22,13 +29,30 @@
             android:layout_height="230dp"
             android:background="@color/colorGray"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
         <Button
-            android:id="@+id/textToSpeed"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/textToSpeech_On_Btn"
+            android:onClick="textToSpeech_On_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Đọc tin"
-            android:drawableRight="@drawable/ic_text_to_speed"
-            android:padding="5dp"/>
+            android:drawableRight="@drawable/ic_volume_up"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/category"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="category"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorBlack"/>
 
         <TextView
             android:id="@+id/name"
@@ -48,11 +72,17 @@
             android:textColor="@color/colorBlack"
             android:padding="5dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Nguồn: Cafef.vn"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorGray"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:layout_marginTop="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,23 +91,13 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="category"
-                android:textAlignment="viewStart"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"/>
-            <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="date"
-                android:textAlignment="center"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"/>
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"/>
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
@@ -85,9 +105,8 @@
                 android:layout_weight="1"
                 android:text="time"
                 android:textAlignment="viewEnd"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"/>
+                android:textColor="@color/colorBlack"/>
         </LinearLayout>
     </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+</ScrollView>
+</RelativeLayout>

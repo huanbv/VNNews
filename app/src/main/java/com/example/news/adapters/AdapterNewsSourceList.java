@@ -42,12 +42,7 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
 
         /* Xuat thong tin tu Firestore hiẻn thi len RecycleView tai News Layout */
         holder.name.setText(model.getName());
-//        holder.description.setText(model.getDescription());
-//        holder.category.setText(model.getCategory());
-//        holder.date.setText("Ngày: " + model.getDate());
-//        holder.time.setText("Giờ: " + model.getTime());
         Glide.with(holder.itemView.getContext()).load(model.getThumbnailUrl()).into(holder.thumbnailUrl);
-
 
         /* Khi nhan vao tin tuc se chuyen qua Layout chi tiet cua tin tuc do */
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -64,10 +59,6 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
-        private TextView description;
-        private TextView category;
-        private TextView date;
-        private TextView time;
         private ImageView thumbnailUrl;
 
         public NewsViewHolder(@NonNull View itemView) {
@@ -75,10 +66,6 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
 
             thumbnailUrl = itemView.findViewById(R.id.thumbnailUrl);
             name = itemView.findViewById(R.id.name);
-            description = itemView.findViewById(R.id.description);
-            category = itemView.findViewById(R.id.category);
-            date = itemView.findViewById(R.id.date);
-            time = itemView.findViewById(R.id.time);
         }
     }
 }

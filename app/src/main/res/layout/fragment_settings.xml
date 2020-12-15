@@ -5,18 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="@color/colorGray"
-    app:contentPadding="5dp"
-    android:elevation="3dp"
-    app:cardCornerRadius="3dp">
-
-
+    app:contentPadding="5dp">
 
         <LinearLayout
+            android:elevation="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="10dp"
+            app:cardCornerRadius="3dp"
             android:paddingBottom="10dp">
 
             <ImageButton
@@ -120,10 +117,10 @@
 
                 <TextView
                     android:id="@+id/Privacy"
-                    android:layout_width="wrap_content"
+                    android:layout_width="74dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableTop="@drawable/ic_friends"
+                    android:drawableTop="@drawable/ic_friend"
                     android:text="Bạn bè"
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack"
@@ -132,7 +129,7 @@
 
                 <TextView
                     android:id="@+id/Support"
-                    android:layout_width="wrap_content"
+                    android:layout_width="102dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_contacts"
@@ -144,7 +141,7 @@
 
                 <TextView
                     android:id="@+id/settings"
-                    android:layout_width="wrap_content"
+                    android:layout_width="108dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableTop="@drawable/ic_location"
