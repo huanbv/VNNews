@@ -5,18 +5,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardUseCompatPadding="true"
-        app:cardBackgroundColor="@color/colorGray"
         app:contentPadding="5dp"
+        android:background="@color/colorWhite"
         android:elevation="3dp"
         app:cardCornerRadius="3dp">
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/colorWhite"
             android:padding="15dp"
             android:layout_gravity="center">
 

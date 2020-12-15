@@ -60,7 +60,7 @@ public class VideoFragment extends Fragment {
                 .setQuery(query, ModelNewsSourceList.class)
                 .build();
 
-        adapter = new AdapterNewsSourceList(options);
+        adapter = new AdapterNewsSourceList(options,getContext());
 
         //View holder
         B.videoSourcesRv.setHasFixedSize(true);

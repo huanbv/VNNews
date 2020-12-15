@@ -54,7 +54,7 @@ public class NewsFragment extends Fragment {
             .setQuery(query, ModelNewsSourceList.class)
             .build();
 
-        adapter = new AdapterNewsSourceList(options);
+        adapter = new AdapterNewsSourceList( options , getContext() );
 
         //View holder
         B.sourcesRv.setHasFixedSize(true);

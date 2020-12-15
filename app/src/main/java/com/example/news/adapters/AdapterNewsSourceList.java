@@ -1,7 +1,7 @@
 package com.example.news.adapters;
 
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.news.activities.NewsDetailActivity;
 import com.example.news.models.ModelNewsSourceList;
 import com.example.news.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-import java.net.URI;
-import java.util.Objects;
-
 
 public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSourceList, AdapterNewsSourceList.NewsViewHolder> {
+    Context context;
 
-    public AdapterNewsSourceList(@NonNull FirestoreRecyclerOptions options) {
+    public AdapterNewsSourceList(@NonNull FirestoreRecyclerOptions options, Context context) {
         super(options);
+        this.context = context;
+
     }
 
 
@@ -41,10 +42,10 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
 
         /* Xuat thong tin tu Firestore hiẻn thi len RecycleView tai News Layout */
         holder.name.setText(model.getName());
-        holder.description.setText(model.getDescription());
-        holder.category.setText(model.getCategory());
-        holder.date.setText("Ngày: " +model.getDate());
-        holder.time.setText("Giờ: " +model.getTime());
+//        holder.description.setText(model.getDescription());
+//        holder.category.setText(model.getCategory());
+//        holder.date.setText("Ngày: " + model.getDate());
+//        holder.time.setText("Giờ: " + model.getTime());
         Glide.with(holder.itemView.getContext()).load(model.getThumbnailUrl()).into(holder.thumbnailUrl);
 
 
@@ -53,15 +54,15 @@ public class AdapterNewsSourceList extends FirestoreRecyclerAdapter<ModelNewsSou
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent();
+                Intent intent = new Intent(context, NewsDetailActivity.class);
+                intent.putExtra("NewsDetail",model);
+                context.startActivity(intent);
             }
         });
-
-
     }
 
 
-    public static class NewsViewHolder extends RecyclerView.ViewHolder{
+    public static class NewsViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView description;
         private TextView category;

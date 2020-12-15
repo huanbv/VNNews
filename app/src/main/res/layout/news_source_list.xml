@@ -6,6 +6,7 @@
     app:cardUseCompatPadding="true"
     app:cardBackgroundColor="@color/colorWhite"
     app:contentPadding="3dp"
+    android:layout_margin="10dp"
     android:elevation="3dp"
     app:cardCornerRadius="3dp">
 
@@ -16,8 +17,8 @@
 
         <ImageView
             android:id="@+id/thumbnailUrl"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_width="380dp"
+            android:layout_height="235dp"
             android:background="@color/colorGray"/>
 
         <TextView
@@ -27,53 +28,8 @@
             android:text="name"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="the description of the news source"
-            android:textColor="@color/colorBlack"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorGray"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="category"
-                android:textAlignment="viewStart"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="date"
-                android:textAlignment="center"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="time"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"/>
-        </LinearLayout>
+            android:padding="5dp"
+            android:background="@color/colorWhite"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

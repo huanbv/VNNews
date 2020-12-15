@@ -1,6 +1,8 @@
 package com.example.news.models;
 
-public class ModelNewsSourceList {
+import java.io.Serializable;
+
+public class ModelNewsSourceList implements Serializable {
     private String name, description, category, thumbnailUrl;
     private NewsDetail detail;
     private String date;
