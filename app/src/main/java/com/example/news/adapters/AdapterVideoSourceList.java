@@ -1,8 +1,10 @@
 package com.example.news.adapters;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +48,8 @@ public class AdapterVideoSourceList extends FirestoreRecyclerAdapter<ModelVideoS
         /* Xuat thong tin tu Firestore hiẻn thi len RecycleView tai News Layout */
         holder.name.setText(model.getName());
         holder.description.setText((model.getDescription()));
-//        holder.videoUrl.getContext()).VideoView(model.getVideolUrl()).into(holder.videoUrl);
+//        holder.videoUrl.getContext().VideoView(model.setVideolUrl(Uri.parse(model.getVideolUrl()))).into(holder.videoUrl);
+
 //        Glide.with(holder.videoUrl.getContext()).load(model.getVideolUrl()).into(holder.videoUrl);
 
         /* Khi nhan vao tin tuc se chuyen qua Layout chi tiet cua tin tuc do */
@@ -65,7 +68,7 @@ public class AdapterVideoSourceList extends FirestoreRecyclerAdapter<ModelVideoS
     public static class VideoViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView description;
-//        private VideoView videoUrl;
+        private VideoView videoUrl;
 
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);

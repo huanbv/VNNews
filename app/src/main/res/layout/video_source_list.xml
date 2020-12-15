@@ -17,9 +17,9 @@
 
         <VideoView
             android:id="@+id/videoUrl"
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="235dp"
-            android:background="@color/colorGray"/>
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/name"

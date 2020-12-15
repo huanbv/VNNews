@@ -28,6 +28,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    // them thu vien playvideo
+    repositories {
+        google()
+        jcenter()
+    }
+
     // Them thu vien cua Databinding
     buildFeatures{
         dataBinding{
