@@ -13,9 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.news.R;
-import com.example.news.adapters.AdapterNewsSourceList;
+import com.example.news.adapters.AdapterVideoSourceList;
 import com.example.news.databinding.FragmentVideoBinding;
-import com.example.news.models.ModelNewsSourceList;
+import com.example.news.models.ModelVideoSourceList;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -23,7 +23,7 @@ import com.google.firebase.firestore.Query;
 
 public class VideoFragment extends Fragment {
     private FragmentVideoBinding B;
-    private AdapterNewsSourceList adapter;
+    private AdapterVideoSourceList adapter;
     private FirebaseFirestore firebaseFirestore;
 
     @Override
@@ -40,33 +40,25 @@ public class VideoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        /*Picasso.get()
-            .load("https://tinyurl.com/y3g3gbx7")
-            .into(B.imvThumbnail);*/
-
-        /*Glide.with(getContext())
-            .load("https://cafefcdn.com/zoom/370_230/203337114487263232/2020/11/18/photo1605665116947-1605665117279325495695.png")
-            .into(B.imvThumbnail);*/
         firebaseFirestore = FirebaseFirestore.getInstance();
 
 
         //Query
-        Query query = firebaseFirestore.collection("Videos");
+        Query query = firebaseFirestore.collection("video");
 
 
         // Recycle options
-        FirestoreRecyclerOptions<ModelNewsSourceList> options = new FirestoreRecyclerOptions
-                .Builder<ModelNewsSourceList>()
-                .setQuery(query, ModelNewsSourceList.class)
+        FirestoreRecyclerOptions<ModelVideoSourceList> options = new FirestoreRecyclerOptions
+                .Builder<ModelVideoSourceList>()
+                .setQuery(query, ModelVideoSourceList.class)
                 .build();
 
-        adapter = new AdapterNewsSourceList(options,getContext());
+        adapter = new AdapterVideoSourceList(options,getContext());
 
         //View holder
         B.videoSourcesRv.setHasFixedSize(true);
         B.videoSourcesRv.setLayoutManager(new LinearLayoutManager(getContext()));
         B.videoSourcesRv.setAdapter(adapter);
-
 
         adapter.startListening();
     }
