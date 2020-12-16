@@ -29,21 +29,33 @@
             android:layout_height="230dp"
             android:background="@color/colorGray"/>
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp">
 
+        <TableRow>
         <Button
-            android:id="@+id/textToSpeech_On_Btn"
-            android:onClick="textToSpeech_On_Btn"
-            android:layout_width="wrap_content"
+            android:id="@+id/mSpeakBtn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:text="Đọc tin"
             android:drawableRight="@drawable/ic_volume_up"
             android:textAlignment="center"/>
-    </LinearLayout>
+        <Button
+            android:id="@+id/mStopBtn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tạm dừng"
+            android:drawableRight="@drawable/ic_volume_off"
+            android:textAlignment="center"/>
+        </TableRow>
+    </TableLayout>
 
         <TextView
             android:id="@+id/category"

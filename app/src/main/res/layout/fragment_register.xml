@@ -5,7 +5,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardUseCompatPadding="true"
-        app:cardBackgroundColor="@color/colorGray"
         app:contentPadding="5dp"
         android:elevation="3dp"
         app:cardCornerRadius="3dp">
@@ -35,44 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorGray" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
-
-
-                <EditText
-                    android:id="@+id/lastnameEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Họ"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorBlack"/>
-
-
-                <EditText
-                    android:id="@+id/midlenameEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Tên đệm"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorBlack"/>
-
-                <EditText
-                    android:id="@+id/firstnameEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Tên"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorBlack"/>
-
-            </LinearLayout>
 
 
             <LinearLayout
@@ -108,38 +69,9 @@
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorBlack"/>
 
-
-                    <EditText
-                        android:id="@+id/rePasswordEt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="Xác nhận"
-                        android:password="true"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/colorBlack"/>
-
                 </LinearLayout>
 
-
-                <EditText
-                    android:id="@+id/phonebumberEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Số điện thoại"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorBlack"/>
-
             </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorGray"
-                android:paddingTop="10dp"/>
-
 
             <Button
                 android:id="@+id/registerBtn"
@@ -152,13 +84,6 @@
                 android:textSize="17sp"
                 android:layout_weight="1"
                 android:paddingTop="10dp"/>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorGray"/>
-
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -1,24 +1,22 @@
 package com.example.news.adapters;
 
-import android.app.Application;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.news.R;
 import com.example.news.activities.NewsDetailActivity;
-import com.example.news.models.ModelNewsSourceList;
 import com.example.news.models.ModelVideoSourceList;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -41,16 +39,27 @@ public class AdapterVideoSourceList extends FirestoreRecyclerAdapter<ModelVideoS
         return new VideoViewHolder(view);
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onBindViewHolder(@NonNull VideoViewHolder holder, int position, @NonNull ModelVideoSourceList model) {
-
 
         /* Xuat thong tin tu Firestore hiẻn thi len RecycleView tai News Layout */
         holder.name.setText(model.getName());
         holder.description.setText((model.getDescription()));
-//        holder.videoUrl.getContext().VideoView(model.setVideolUrl(Uri.parse(model.getVideolUrl()))).into(holder.videoUrl);
+//        holder.videoView.setVideoURI(Uri.parse(model.getVideolUrl()));
 
-//        Glide.with(holder.videoUrl.getContext()).load(model.getVideolUrl()).into(holder.videoUrl);
+        holder.webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+        });
+        String frameVideo = String.format("<html><body><br><iframe width=\"320\" height=\"200\" src=\"https://www.youtube.com/embed/%s\" frameborder=\"0\" allowfullscreen></iframe></body></html>",
+                model.getVideoUrl().split("\\?v=")[1]);
+        WebSettings webSettings = holder.webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        holder.webView.loadData(frameVideo, "text/html", "utf-8");
+
 
         /* Khi nhan vao tin tuc se chuyen qua Layout chi tiet cua tin tuc do */
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -68,12 +77,14 @@ public class AdapterVideoSourceList extends FirestoreRecyclerAdapter<ModelVideoS
     public static class VideoViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView description;
-        private VideoView videoUrl;
+        private WebView webView;
+//        private VideoView videoView;
 
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-//            videoUrl = (VideoView) videoUrl.findViewById(R.id.videoUrl);
+//            videoView = itemView.findViewById(R.id.videoUrl);
+            webView = itemView.findViewById(R.id.videoView);
             name = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
         }

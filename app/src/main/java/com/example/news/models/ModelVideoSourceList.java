@@ -1,22 +1,18 @@
 package com.example.news.models;
 
-import android.widget.VideoView;
-
 import java.io.Serializable;
 
 public class ModelVideoSourceList implements Serializable {
     private String name, description;
-    private VideoView videolUrl;
+    private String videoUrl;
 
     private ModelVideoSourceList(){}
 
     // constructor
-    public ModelVideoSourceList(String name, String description,VideoView videoUrl) {
-
-
+    public ModelVideoSourceList(String name, String description, String videoUrl) {
         this.name = name;
         this.description = description;
-        this.videolUrl = videoUrl;
+        this.videoUrl = videoUrl;
     }
 
     public String getName() {
@@ -35,12 +31,12 @@ public class ModelVideoSourceList implements Serializable {
         this.description = description;
     }
 
-    public VideoView getVideolUrl() {
-        return videolUrl;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public void setVideolUrl(VideoView videolUrl) {
-        this.videolUrl = videolUrl;
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
     }
 
     public class NewsDetail {

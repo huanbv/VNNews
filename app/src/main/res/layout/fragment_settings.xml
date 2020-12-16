@@ -295,7 +295,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đăng nhập / Đăng xuất"
+            android:text="NEXT >>>"
+            android:onClick="onClickToVideoItemList"
+            android:clickable="true"
+            android:focusable="true"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:textAlignment="center"

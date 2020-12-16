@@ -18,8 +18,6 @@ import com.example.news.adapters.AdapterVideoSourceList;
 import com.example.news.databinding.FragmentVideoBinding;
 import com.example.news.models.ModelVideoSourceList;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
