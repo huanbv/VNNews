@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.example.news.R;
 import com.example.news.activities.LogInActivity;
-import com.example.news.databinding.ActivityRegisterBinding;
 import com.example.news.databinding.FragmentRegisterBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
